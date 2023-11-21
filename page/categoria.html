@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categorías</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Agrega Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center px-4">
+            <div class="container">
+                <a class="navbar-brand" href="#"><i class="fas fa-shopping-cart"></i></a> <!-- Icono del carrito de supermercado -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#"><i class="fas fa-home"></i> Home</a> <!-- Icono de casa -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="lista.html"><i class="fas fa-shopping-basket"></i> Lista de Compra</a> <!-- Icono de carrito de compras -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="categoria.html"><i class="fas fa-th-list"></i> Categoría</a> <!-- Icono de lista -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="producto.html"><i class="fas fa-shopping-bag"></i> Productos</a> <!-- Icono de bolsa de compras -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container mt-4">
+        <h2>Opciones de Categoría</h2>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearCategoriaModal">Crear Nueva Categoría</button>
+        <button class="btn btn-secondary" onclick="mostrarListaCategorias()">Ver Lista de Categorías</button>
+    </div>
+
+    <!-- Modal para Crear Nueva Categoría -->
+    <div class="modal fade" id="crearCategoriaModal" tabindex="-1" aria-labelledby="crearCategoriaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="crearCategoriaModalLabel">Crear Nueva Categoría</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="nombreCategoria">Nombre de la Categoría:</label>
+                    <input type="text" class="form-control" id="nombreCategoria">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="guardarCategoria()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Ver Lista de Categorías -->
+    <div class="modal fade" id="verListaModal" tabindex="-1" aria-labelledby="verListaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="verListaModalLabel">Lista de Categorías</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="listaCategorias">
+                    <!-- Aquí se mostrará la lista de categorías -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pouchdb@7.2.2/dist/pouchdb.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
+

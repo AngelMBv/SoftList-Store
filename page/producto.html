@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap 5 Hero Section</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Agrega Font Awesome -->
+
+    <style>
+        /* Agrega estilos de cambio de color al hacer hover */
+        .navbar-nav .nav-link i {
+            transition: color 0.3s; /* Transición de cambio de color */
+        }
+        .navbar-nav .nav-link:hover i, .navbar-nav .nav-link:hover {
+            color: #007bff; /* Color al hacer hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center px-4">
+            <div class="container">
+                <a class="navbar-brand" href="#"><i class="fas fa-shopping-cart"></i></a> <!-- Icono del carrito de supermercado -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../Menu.html"><i class="fas fa-home"></i> Home</a> <!-- Icono de casa -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../page/lista.html"><i class="fas fa-shopping-basket"></i> Lista de Compra</a> <!-- Icono de carrito de compras -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../page/categoria.html"><i class="fas fa-th-list"></i> Categoría</a> <!-- Icono de lista -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../page/producto.html"><i class="fas fa-shopping-bag"></i> Productos</a> <!-- Icono de bolsa de compras -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+  
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                Formulario de Producto
+            </div>
+            <div class="card-body">
+                <form id="productoForm">
+                    <div class="mb-3">
+                        <label for="nombreProducto" class="form-label">Nombre del Producto</label>
+                        <input type="text" class="form-control" id="nombreProducto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cantidad" class="form-label">Cantidad</label>
+                        <input type="number" class="form-control" id="cantidad" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="number" class="form-control" id="precio" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoria" class="form-label">Categoría</label>
+                        <select class="form-select" id="categoria" required>
+                            <option value=""></option>
+                            <!-- Las opciones de categorías se cargarán dinámicamente desde la lista de categorías -->
+                        </select>
+                    </div>
+                   <!-- Agrega un elemento img para mostrar la imagen en el formulario -->
+                   <div class="mb-3">
+                    <label for="imagen" class="form-label">Imagen</label>
+                    <img id="imagenPreview" class="img-thumbnail" style="max-width: 100px; max-height: 100px; display: none;">
+                    <input type="file" class="form-control" id="imagen" onchange="mostrarImagenPreview()">
+                </div>                
+                    <button type="button" class="btn btn-primary" onclick="guardarProducto()">Guardar</button>
+                </form>
+            </div>
+        </div> <br>
+        <div class="card mt-4">
+            <div class="card-header">
+                Lista de Productos
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Categoría</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaProductosBody">
+                            <!-- Aquí se llenará la tabla con datos de la base de datos -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pouchdb@7.2.2/dist/pouchdb.min.js"></script>
+<script src="app.js"></script>
+<script>
+    mostrarListaCategorias();
+    limpiarFormulario();
+</script>
+</body>
+</html>

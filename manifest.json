@@ -1,0 +1,23 @@
+{
+    "name": "Tienda SoftList",
+    "short_name": "Softlist",
+    "description": "Una tienda gestiona productos",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#007BFF",
+    "orientation": "portrait", 
+    "icons": [
+      {
+        "src": "img/128.png",
+        "sizes": "128x129",
+        "type": "image/png"
+      },
+      {
+        "src": "img/512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  
